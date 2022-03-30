@@ -6,7 +6,7 @@ const app = express();
 //Template Engine Settings
 
   app.set("view engine", "ejs");
-  app.set('views', path.join(__dirname, './src/views'));
+  app.set('views', path.join(__dirname, './src/views')); // configuration when views folder is inside src folder
 
 //routes
 app.use('/', indexRoutes)
