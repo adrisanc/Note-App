@@ -15,9 +15,13 @@
             <td><%= task.title %></td>
             <td> <%= task.description %> </p>
             <td>
+                <% if(task.done) { %>
+                    <a href="/toggleDone/<%= task._id%> ">No Hecho</a>
+                <%} else {%>
+                    <a href="/toggleDone/<%= task._id%> ">Hecho</a>
+               <% }%> 
                 <a href="/edit/<%=task._id%>">Editar</a>
-                <input type="submit" value="Borrar">
-                <input type="submit" value="Hecho">
+                <a href="/delete/<%=task._id%>">Borrar</a>
             </td>
             
         </tr>

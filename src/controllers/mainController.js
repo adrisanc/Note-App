@@ -34,12 +34,29 @@ const mainController = {
       saveEdition: async(req, res) =>{
         try {
           
-          const id = req.params.id
-          await Task.findByIdAndUpdate(id,req.body)
+          const id = req.params.id;
+          await Task.findByIdAndUpdate(id,req.body);
           res.redirect('/')
         } catch (error) {
           console.log(error)
         }
+      },
+      delete :async(req,res) =>{
+        try {
+          const id = req.params.id;
+        await Task.findByIdAndDelete(id);
+        res.redirect('/')
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      done: async(req,res) => {
+        
+        const id =req.params.id;
+        const task = await Task.findById(id);
+        task.done = !task.done; // true to false
+        await task.save();
+        res.redirect('/')
       }
 }
 
