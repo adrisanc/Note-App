@@ -17,6 +17,29 @@ const mainController = {
         } catch (error) {
           return res.send(error);
         }
+      },
+
+      edit : async(req,res)=>{
+        try {
+          const id = req.params.id
+          const task = await Task.findById(id).lean();
+          res.render('editForm',{task})
+        } catch (error) {
+          console.log(error)
+        }
+        
+
+      } ,
+
+      saveEdition: async(req, res) =>{
+        try {
+          
+          const id = req.params.id
+          await Task.findByIdAndUpdate(id,req.body)
+          res.redirect('/')
+        } catch (error) {
+          console.log(error)
+        }
       }
 }
 

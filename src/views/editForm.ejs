@@ -1,0 +1,16 @@
+<form action="/edit/<%=task._id%>" method="POST">
+    <div>
+        <label for="title">
+            Write a title
+            <input type="text" name="title" placeholder="Titulo" id="title" value="<%= task.title %> ">
+        </label>
+    </div>
+    <div>
+        <label for="description">
+            Description
+        <textarea name="description" placeholder="Descripción" id="description" rows="3"><%= task.description %></textarea>
+    </label>
+    
+    </div>
+    <button>Guardar</button>   
+</form>
