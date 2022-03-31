@@ -1,0 +1,28 @@
+<table>
+    <thead>
+        <tr>
+            <th>N°</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+    <% tasks.forEach( task =>{ %>
+    <tbody>
+        
+        <tr>
+            <td> <%=tasks.indexOf(task)%></td>
+            <td><%= task.title %></td>
+            <td> <%= task.description %> </p>
+            <td>
+                <input type="submit" value="Editar">
+                <input type="submit" value="Borrar">
+                <input type="submit" value="Hecho">
+            </td>
+            
+        </tr>
+    
+    </tbody>
+    <%}) %>
+    
+</table>

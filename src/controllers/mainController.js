@@ -3,16 +3,17 @@ const Task = require('../models/Task')
 
 const mainController = {
 
-    home : (req,res) =>{
-        res.render("index");
+    home : async(req,res) =>{
+      const tasks = await Task.find().lean()
+        res.render("index", {tasks});
     },
 
-    createTask : async (req, res, next) => {
+    createTask : async (req, res) => {
         try {
           const task = Task(req.body);
           const taskSaved = await task.save();
           console.log(taskSaved);
-          res.send('Task Saved');
+          res.redirect('/')
         } catch (error) {
           return res.send(error);
         }
