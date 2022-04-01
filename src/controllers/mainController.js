@@ -4,8 +4,13 @@ const Task = require('../models/Task')
 const mainController = {
 
     home : async(req,res) =>{
-      const tasks = await Task.find().lean()
+      try {
+        const tasks = await Task.find().lean()
         res.render("index", {tasks});
+      } catch (error) {
+        console.log(error);
+      }
+      
     },
 
     createTask : async (req, res) => {

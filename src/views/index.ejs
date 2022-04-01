@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Note App</title>
-</head>
+    <%- include('./partials/head.ejs') %> 
 <body>
    
 
-    <h1>Crea tu To do List </h1>
     <%- include('./partials/navBar') %>
-    <%- include('./partials/taskForm')%>    
-    <%- include('./partials/taskTable')%>
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-5">
+                <%- include('./partials/taskForm')%>    
+            </div>
+            <div class="col-md-7">
+                <%- include('./partials/taskTable')%>
+            </div>
+            
+        </div>
+
+    </div>
+    
 
     
 </body>
