@@ -5,8 +5,11 @@ const mainController = {
 
     home : async(req,res) =>{
       try {
-        const tasks = await Task.find().lean()
-        res.render("index", {tasks});
+        
+        const tasks = await Task.find().lean();
+        const tasksDone = await Task.find({done:true}).lean();
+        const tasksLeft = await Task.find({done:false}).lean();
+        res.render("index", {tasks,tasksDone,tasksLeft});
       } catch (error) {
         console.log(error);
       }
@@ -26,9 +29,13 @@ const mainController = {
 
       edit : async(req,res)=>{
         try {
+
           const id = req.params.id
+          const tasks = await Task.find().lean();
+          const tasksDone = await Task.find({done:true}).lean();
+          const tasksLeft = await Task.find({done:false}).lean();
           const task = await Task.findById(id).lean();
-          res.render('editForm',{task})
+          res.render('editForm',{task,tasksDone,tasksLeft,tasks})
         } catch (error) {
           console.log(error)
         }
@@ -62,6 +69,16 @@ const mainController = {
         task.done = !task.done; // true to false
         await task.save();
         res.redirect('/')
+      },
+
+      deletAllDone: async(req,res) => {
+        try {
+    
+        await Task.deleteMany({done: true})
+          res.redirect('/')
+        } catch (error) {
+          console.log(error);
+        }
       }
 }
 

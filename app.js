@@ -17,6 +17,11 @@ app.use(express.urlencoded({extended:false})) //allow to get the form's informat
 
 //routes
 app.use('/', indexRoutes)
+const publicPath = path.resolve(__dirname, "./public");
+
+//static files
+app.use(express.static(publicPath));
+
 
 
 

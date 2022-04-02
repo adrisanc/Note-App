@@ -1,0 +1,19 @@
+
+<nav>
+    <div class="card border border-3 rounded-end">
+        <% if(tasksLeft) { %>
+            <p> <%= tasksLeft.length%> Left </p>
+        <%} %>
+        <ul class="row">
+            <li><a>All</a></li>
+            <li><a>Active</a></li>
+            <li><a>Completed</a></li>
+        </ul>
+      
+        
+        <a href="/deleteAll/<%=tasksDone[tasksDone._id]%>">Clear Completed</a>
+   
+        
+    </div>
+    
+</nav>

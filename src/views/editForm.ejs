@@ -15,13 +15,14 @@
                             <div class="row mb-4 m-3">
                                 <label for="title" class="mb-3"> Nota </label>
                                 <input type="text" name="title" placeholder="Titulo" id="title" value="<%= task.title %> " class="form-control">
+                                <button class="btn btn-dark">Guardar</button> 
                             </div>
                             <div class="row mb-4 m-3">
-                                <label for="description" class="mb-3"> Descripción </label>
-                                <textarea name="description" placeholder="Descripción" id="description" rows="3" class="form-control"><%= task.description %></textarea>
+                                <%- include('./partials/taskTable')%>
+                                <%- include('./partials/toDoNav.ejs') %> 
                             
                             </div>
-                            <button class="btn btn-dark">Guardar</button> 
+                            
                         
                     </form>
                 </div>

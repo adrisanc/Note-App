@@ -8,4 +8,5 @@ router.get('/edit/:id', mainController.edit);
 router.post('/edit/:id', mainController.saveEdition)
 router.get('/delete/:id', mainController.delete);
 router.get('/toggleDone/:id', mainController.done);
+router.get('/deleteAll', mainController.deletAllDone);
 module.exports = router
