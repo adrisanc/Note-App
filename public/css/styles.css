@@ -5,6 +5,8 @@
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   font-size: 18px;
+   
  }
 /*colors*/
 :root{
@@ -31,11 +33,221 @@
 
 body{
     font-family: 'Josefin Sans';
-    background-image: url("/img/bg-desktop-dark.jpg");
+   
     background-color: var(--VeryDarkBlue);
-    background-size: 100% 300px;
-    background-repeat: no-repeat;
-    ;
+    
     
 }
 
+div.index-container{
+    background-image: url("/img/bg-mobile-dark.jpg");
+    
+    background-size: cover 200px;
+    background-repeat: no-repeat;
+}
+
+/*Header bar*/
+
+nav a{
+    font-weight: 700;
+    color: var(--LightGrayishBlueHover);
+    letter-spacing:10px
+}
+
+
+/*Add task*/
+.dark-color-theme {
+    display: flex;
+    background: var(--VeryDarkDesaturatedBlue);
+    align-items: center;
+    width: 100%;
+    text-align: center;
+
+}
+.textcenter{
+    display: flex;
+    justify-content: center;
+    color: var(--VeryDarkGrayishBlue);
+    padding: 1em;
+    border-radius: .25rem;
+}
+/*Index*/
+div.index-container{
+    display: flex;
+    justify-content: center;
+}
+div.full-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+}
+
+/*Task Form*/
+div.task-container{
+    border-radius: .25rem;
+}
+form div.dark-color-theme span{
+
+    border: 1px solid var(--VeryDarkGrayishBlue);
+    border-radius: 50%;
+    margin-left: 1em;
+    padding: .45em;
+    height: 20px;
+    width: 20px;
+}
+div.dark-color-theme input{
+    background-color: var(--VeryDarkDesaturatedBlue);
+    border: none;
+    padding: .8em;
+    font-size: .8em;
+    width: 80%;
+    color: var(--LightGrayishBlueHover);
+}
+div.dark-color-theme input:focus{
+    outline: none;
+    background-color: var(--VeryDarkDesaturatedBlue);
+    color: var(--LightGrayishBlueHover);
+    
+}
+
+/*Task List*/
+div.con-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: .25rem .25rem 0 0 ;
+}
+ div.con-list ul{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin: 0;
+     padding: 0;
+     width: 100%;
+ }
+
+
+ul li.task { display: flex;
+    list-style: none;
+    justify-content: space-between;
+    width: 100%;
+    color: var(--VeryLightGray);
+    border-bottom: 1px solid var(--VeryDarkGrayishBlue);
+    padding: .5em;
+    border-radius: .25rem  .25rem 0 0;
+}
+label{
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+a.btn-undone, .btn-done{
+    border:1px solid var(--VeryDarkGrayishBlue);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: relative;
+}
+a.btn-done{
+    background: linear-gradient(0.25turn, hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+}
+a.btn-done img {
+    position: absolute;
+    top: 5px;
+    left: 4.5px;
+    width: 9px;
+    height: auto;
+}
+label p{
+    margin: 0;
+    padding: .5em;
+}
+a.btn-set{
+    padding: .5em;
+}
+svg.iconify.iconify--bytesize{
+    color: var(--VeryDarkGrayishBlue);
+}
+
+/*Filters */
+.todo-nav{
+    display: flex;    
+    flex-direction: column;
+}
+div.filters{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    color: var(--DarkGrayishBlue);
+    border-radius: 0  0 .25rem .25rem;
+}
+div.filters p{
+    margin: 0;
+}
+
+div.filters a{
+    text-decoration: none;
+    color: var(--DarkGrayishBlue)
+}
+ form div span.filter{
+     justify-content: center;
+        border: none;
+        margin: 0;
+    }
+
+    div#filter-mobile{
+        background-color: var(--VeryDarkDesaturatedBlue);
+        border-radius: .25rem;
+        color: var(--DarkGrayishBlue);
+    }
+     div.filter-desktop{
+        display: flex;
+        justify-content: space-between;
+        gap: 1em;
+        width: auto;
+    }
+
+div.filter-desktop{
+    display: none;
+}
+.filter{
+    color: var(--BrightBlue);
+
+}
+@media  screen and (min-width: 376px) {
+    div.index-container{
+        background-image: url("/img/bg-desktop-dark.jpg");
+        background-size: cover 100px;
+        width: 100%;
+    }
+}
+
+    @media screen and (min-width:768px){
+      
+        div.filter-desktop{
+            display: block;
+        }
+
+        div#filter-mobile{
+            display: none;
+        }
+
+        
+        
+    }
+
+    @media screen and (min-width:1024px){
+        
+      
+        div.full-container{
+            width: 50%;
+        }
+        
+        
+    }

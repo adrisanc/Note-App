@@ -1,49 +1,33 @@
 
 <% if(tasks.length >0) { %>
-    <div class="card border border-3 ">
-        <div class="card-body">
-            <table  class="table table-hover">    
-                
-                <tbody>
-                    <% tasks.forEach( task => {  %>
-                    <tr>
-                        
-                        <td><%= task.title %></td>
-                        <td>
-                            <% if(task.done) { %>
-                                <a class="btn btn-danger" href="/toggleDone/<%= task._id%> ">No Hecho</a>
-                            <%} else {%>
-                                <a class="btn btn-success" href="/toggleDone/<%= task._id%> ">Hecho</a>
-                           <% }%> 
-                            <a class="btn btn-dark" href="/edit/<%=task._id%>">Editar</a>
-                            <a class="btn btn-dark" href="/delete/<%=task._id%>">Borrar</a>
-                        </td>
-                        
-                    </tr>
-                    <% }); %>
 
-                    
-                    <tr>
+        <div class="con-list dark-color-theme ">
+
+            
+                <ul>
+                    <% tasks.forEach( task => {  %>
+                    <li class="task">
+                        <label for="estate">
+                            <% if(task.done) { %>
+                                <a class="btn-done" href="/toggleDone/<%= task._id%> "><img src="/img/icon-check.svg" alt=""></a>
+                            <%} else {%>
+                                <a class="btn-undone" href="/toggleDone/<%= task._id%> "></a>
+                           <% }%> 
+                            
+                            <p><%= task.title %></p>                            
+                        </label>
+                        <a class="btn-set" href="/edit/<%=task._id%>"><span class="iconify" data-icon="bytesize:edit"></span></a>
+                        <a class="btn-set" href="/delete/<%=task._id%>"><img src="/img/icon-cross.svg"></a>
                         
-                    
-                        <td>count</td>
-                        <td>
-                            <a href="">All</a>
-                            <a>Active</a>
-                            <a>completed</a>
-                        </td>
-                        <td><a href="/deleteAll/<%= tasks._id%>">Clear Completed</a></td>
-                    </tr>
-                    
-                </tbody> 
-                
-         
-        </table>
+                    </li>
+                    <% }); %>
+                </ul>
+              
         </div>
-        </div>
+
         
 <%} else {%>
-    <h1 class="text-center">No existen tareas</h1>
+    <h1 class="dark-color-theme textcenter">There are not tasks</h1>
     <%}%>
 
   

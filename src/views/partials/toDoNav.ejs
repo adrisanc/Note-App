@@ -1,19 +1,14 @@
 
-<nav>
-    <div class="card border border-3 rounded-end">
-        <% if(tasksLeft) { %>
-            <p> <%= tasksLeft.length%> Left </p>
-        <%} %>
-        <ul class="row">
-            <li><a>All</a></li>
-            <li><a>Active</a></li>
-            <li><a>Completed</a></li>
-        </ul>
-      
-        
-        <a href="/deleteAll/<%=tasksDone[tasksDone._id]%>">Clear Completed</a>
+<div class="todo-nav">
+    <div class="filters dark-color-theme mb-4">
+       
+        <p class=" align-self-center"> <%= tasksLeft.length%> Left </p>        
+        <a id="clear-task" href="/deleteAll/<%=tasksDone[tasksDone._id]%>">Clear Completed</a>
    
         
-    </div>
+    </div> 
+    <div id="filter-mobile" ></div>
     
-</nav>
+  
+    
+</div>
