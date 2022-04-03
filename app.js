@@ -2,8 +2,11 @@ const express = require('express');
 const indexRoutes = require('./src/routes/indexRoutes')
 const path = require('path');
 const morgan = require('morgan');
-require("./src/models/database")
+const mongoose = require('mongoose');
 
+
+//Import enviroment varaibles
+require('dotenv').config({path:'variables.env'})
 
 const app = express();
 //Template Engine Settings
@@ -22,9 +25,20 @@ const publicPath = path.resolve(__dirname, "./public");
 //static files
 app.use(express.static(publicPath));
 
+//connect to mongo
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.DB_URL, {
+  useNewUrlParser: true
+})
 
+//read localhost variables & port
+
+const host = process.env.HOST || '0.0.0.0';
+const port = process.env.PORT || 3000;
 
 
 //Port Server
-app.listen(3000);
-console.log('Running on Port', 3000);
+app.listen(port, host, () =>{
+  console.log('Server running');
+});
+
